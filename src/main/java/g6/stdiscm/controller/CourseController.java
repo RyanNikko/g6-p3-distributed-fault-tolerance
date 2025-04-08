@@ -4,6 +4,8 @@ import g6.stdiscm.model.Course;  // Import the Course entity
 import g6.stdiscm.service.CourseService;  // Import the service
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +19,10 @@ public class CourseController {
     @GetMapping("/courses")
     public List<Course> getCourses() {
         return courseService.getAvailableCourses();
+    }
+
+    @PostMapping
+    public Course createCourse(@RequestBody Course course) {
+        return courseService.saveCourse(course);
     }
 }
