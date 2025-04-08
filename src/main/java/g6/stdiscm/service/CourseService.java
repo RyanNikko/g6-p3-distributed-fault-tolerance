@@ -17,5 +17,9 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
+    public Course saveCourse(Course course) {
+        return courseRepository.save(course);
+    }
+
     // Other business logic methods can be added here, such as enrolling a student, etc.
 }
